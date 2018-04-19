@@ -58,7 +58,7 @@ var (
 	validation.
 
 	Note: terraform users will need to run all of the following commands from the same directory
-	` + pretty.Bash("kops update cluster --target=terraform") + ` then ` + pretty.Bash("terraform plan") + ` then
+	` + pretty.Bash("kops update cluster --target=terraform --out=.") + ` then ` + pretty.Bash("terraform plan") + ` then
 	` + pretty.Bash("terraform apply") + ` prior to running ` + pretty.Bash("kops rolling-update cluster") + `.`))
 
 	rollingupdateExample = templates.Examples(i18n.T(`
@@ -66,7 +66,6 @@ var (
 		kops rolling-update cluster
 
 		# Roll the currently selected kops cluster with defaults.
-		# Nodes will be drained and the cluster will be validated between node replacement.
 		kops rolling-update cluster --yes
 
 		# Roll the k8s-cluster.example.com kops cluster,
